@@ -2,9 +2,9 @@
   <main>
     <div class="container">
       <div class="tool">
-        <SearchMoviesBar :searchMovie="API_url" @search-movie="search" />
+        <SearchMoviesBar @search-movie="search" />
       </div>
-      <div class="row" v-if="API_url != null">
+      <div class="row" v-if="movies.length">
         <MovieElement
           :movie="movie"
           v-for="movie in movies"
@@ -41,26 +41,28 @@ export default {
   },
   methods: {
     search(text) {
-      this.API_url = toString(text);
-      console.log(this.API_url);
-    },
-  },
-  mounted() {
-    var config = {
-      method: "get",
-      url: "https://api.themoviedb.org/3/search/movie?api_key=de751d2bf92975ccebd5f3008e453c82&language=it&query=fight&page=1&include_adult=false",
-    };
+      console.log(text);
+      //this.API_url = text
 
-    axios(config)
-      .then((response) => {
-        console.log(response.data.results);
-        this.movies = response.data.results;
-        console.log(this.movies);
-      })
-      .catch((error) => {
-        console.log(error, "OPS!");
-        this.error = error;
-      });
+      var config = {
+        method: "get",
+        url:
+          "https://api.themoviedb.org/3/search/movie?api_key=de751d2bf92975ccebd5f3008e453c82&language=it&query=" +
+          text +
+          "&page=1&include_adult=false",
+      };
+
+      axios(config)
+        .then((response) => {
+          console.log(response.data.results);
+          this.movies = response.data.results;
+          console.log(this.movies);
+        })
+        .catch((error) => {
+          console.log(error, "OPS!");
+          this.error = error;
+        });
+    },
   },
 };
 </script>

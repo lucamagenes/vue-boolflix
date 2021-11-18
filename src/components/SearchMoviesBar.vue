@@ -1,11 +1,11 @@
 <template>
   <div class="searchBox">
-    <label for="searchMovies">Cerca: </label>
+    <label for="searchMovies">Cerca:</label>
     <input
       type="search"
       name="searchMovies"
       id="searchMovies"
-      placeholder="Film"
+      placeholder="..."
       v-model="searchMovie"
     />
     <button @click="$emit('search-movie', searchMovie)">Cerca</button>
