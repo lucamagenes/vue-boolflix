@@ -2,14 +2,20 @@
   <main>
     <div class="container">
       <div class="tool">
-        <SearchMoviesBar />
+        <SearchMoviesBar :searchMovie="API_url" @search-movie="search" />
       </div>
-      <div class="row">
+      <div class="row" v-if="API_url != null">
         <MovieElement
           :movie="movie"
           v-for="movie in movies"
           :key="movie.title"
         />
+      </div>
+      <div class="nothing" v-else>
+        <h1>
+          Per iniziare una ricerca inserisci il nome di un film nella barra di
+          ricerca
+        </h1>
       </div>
     </div>
   </main>
@@ -30,7 +36,14 @@ export default {
     return {
       movies: [],
       error: "",
+      API_url: null,
     };
+  },
+  methods: {
+    search(text) {
+      this.API_url = toString(text);
+      console.log(this.API_url);
+    },
   },
   mounted() {
     var config = {

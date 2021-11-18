@@ -1,18 +1,25 @@
 <template>
   <div class="searchBox">
-    <label for="searchMovies">Cerca il nome di un film</label>
+    <label for="searchMovies">Cerca: </label>
     <input
       type="search"
       name="searchMovies"
       id="searchMovies"
-      placeholder="..."
+      placeholder="Film"
+      v-model="searchMovie"
     />
-    <button>Cerca</button>
+    <button @click="$emit('search-movie', searchMovie)">Cerca</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      searchMovie: "",
+    };
+  },
+};
 </script>
 
 <style lang="scss">
