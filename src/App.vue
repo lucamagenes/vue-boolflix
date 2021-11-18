@@ -1,11 +1,18 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <site-header />
+    <SiteMain />
+    <site-footer />
+  </div>
 </template>
 
 <script>
+import SiteMain from "./components/SiteMain.vue";
 export default {
   name: "App",
-  components: {},
+  components: {
+    SiteMain,
+  },
 };
 </script>
 
