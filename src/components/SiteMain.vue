@@ -39,11 +39,12 @@ export default {
     };
 
     axios(config)
-      .then(function (response) {
+      .then((response) => {
         console.log(response.data.results);
         this.movies = response.data.results;
+        console.log(this.movies);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error, "OPS!");
         this.error = error;
       });
