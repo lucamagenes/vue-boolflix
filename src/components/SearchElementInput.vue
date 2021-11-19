@@ -1,14 +1,14 @@
 <template>
   <div class="searchBox">
-    <label for="searchMovies">Cerca:</label>
+    <label for="searchElement">Cerca:</label>
     <input
       type="search"
-      name="searchMovies"
-      id="searchMovies"
+      name="searchElement"
+      id="searchElement"
       placeholder="Titolo film"
-      v-model="searchMovie"
+      v-model="searchElement"
     />
-    <button @click="$emit('search-movie', searchMovie)">Cerca</button>
+    <button @click="$emit('search-element', searchElement)">Cerca</button>
   </div>
 </template>
 
@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      searchMovie: "",
+      searchElement: "",
     };
   },
 };
