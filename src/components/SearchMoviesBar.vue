@@ -5,7 +5,7 @@
       type="search"
       name="searchMovies"
       id="searchMovies"
-      placeholder="..."
+      placeholder="Titolo film"
       v-model="searchMovie"
     />
     <button @click="$emit('search-movie', searchMovie)">Cerca</button>

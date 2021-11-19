@@ -5,11 +5,7 @@
         <SearchMoviesBar @search-movie="search" />
       </div>
       <div class="row" v-if="movies.length">
-        <MovieElement
-          :movie="movie"
-          v-for="movie in movies"
-          :key="movie.title"
-        />
+        <MovieElement :movie="movie" v-for="movie in movies" :key="movie.id" />
       </div>
       <div class="nothing" v-else>
         <h1>
@@ -36,20 +32,19 @@ export default {
     return {
       movies: [],
       error: "",
-      API_url: null,
+      movie_url: "https://api.themoviedb.org/3/search/movie",
+      api_key: "de751d2bf92975ccebd5f3008e453c82",
     };
   },
   methods: {
     search(text) {
       console.log(text);
-      //this.API_url = text
+
+      const full_movie_url = `${this.movie_url}?api_key=${this.api_key}&language=it&query=${text}&page=1&include_adult=false`;
 
       var config = {
         method: "get",
-        url:
-          "https://api.themoviedb.org/3/search/movie?api_key=de751d2bf92975ccebd5f3008e453c82&language=it&query=" +
-          text +
-          "&page=1&include_adult=false",
+        url: full_movie_url,
       };
 
       axios(config)
