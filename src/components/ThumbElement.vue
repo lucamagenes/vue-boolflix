@@ -42,7 +42,16 @@
       </div>
 
       <div class="rating">
-        <span>
+        <span
+          v-for="(icon, i) in Math.ceil(item.vote_average / 2)"
+          :key="'far' + i"
+        >
+          <font-awesome-icon :icon="['fas', 'star']" />
+        </span>
+        <span
+          v-for="(icon, i) in 5 - Math.ceil(item.vote_average / 2)"
+          :key="'far' + i"
+        >
           <font-awesome-icon :icon="['far', 'star']" />
         </span>
       </div>
