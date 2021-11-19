@@ -5,16 +5,16 @@
         <SearchElementInput @search-element="search" />
       </div>
       <div class="row" v-if="items.length">
-        <h2>Film e Serie TV</h2>
+        <h1>Film e Serie TV</h1>
         <div class="Movies row">
           <ThumbElement :item="item" v-for="item in items" :key="item.id" />
         </div>
       </div>
       <div class="nothing" v-else>
-        <h1>
+        <h2>
           Per iniziare una ricerca inserisci il nome di un film nella barra di
           ricerca
-        </h1>
+        </h2>
       </div>
     </div>
   </main>

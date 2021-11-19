@@ -1,6 +1,14 @@
 <template>
   <div class="col-3">
     <div class="Thumb">
+      <div class="thumb_image">
+        <img
+          v-if="item.poster_path"
+          :src="'https://image.tmdb.org/t/p/w185/' + item.poster_path"
+          alt=""
+        />
+        <img v-else src="../assets/image-not-found.png" alt="" />
+      </div>
       <div class="title">
         <h3 class="title">{{ item.title || item.name }}</h3>
         <p>Titolo originale: {{ item.original_title || item.original_name }}</p>
