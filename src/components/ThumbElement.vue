@@ -42,7 +42,9 @@
       </div>
 
       <div class="rating">
-        <p>Voto: {{ item.vote_average }}</p>
+        <span>
+          <font-awesome-icon :icon="['far', 'star']" />
+        </span>
       </div>
     </div>
   </div>

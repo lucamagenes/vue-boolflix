@@ -8,11 +8,11 @@ Vue.component('country-flag', CountryFlag)
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { faFontAwesome } from '@fortawesome/free-brands-svg-icons'
+import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faUserSecret)
-library.add(faFontAwesome)
+library.add(faUserSecret, fasStar, farStar)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
