@@ -65,4 +65,9 @@ export default {
 
 <style lang="scss">
 @import "./assets/scss/common.scss";
+
+body {
+  background-color: $background-dark-gray;
+  color: $font-main-color;
+}
 </style>

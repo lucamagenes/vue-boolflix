@@ -6,7 +6,6 @@
           <h1>BOOLFLIX</h1>
         </div>
         <div class="tool">
-          <!-- <SearchElementInput @search-element="search" /> -->
           <div class="searchBox">
             <input
               type="search"
@@ -24,12 +23,7 @@
 </template>
 
 <script>
-//import SearchElementInput from "./SearchElementInput.vue";
-
 export default {
-  components: {
-    //SearchElementInput,
-  },
   data() {
     return {
       searchElement: "",
@@ -40,9 +34,30 @@ export default {
 
 <style lang="scss">
 @import "../assets/scss/common.scss";
-.logo {
-  h1 {
-    color: $brand-color-text;
+
+header {
+  margin-bottom: 4rem;
+  .container {
+    .row {
+      height: 60px;
+      justify-content: space-between;
+      align-items: center;
+      .logo {
+        h1 {
+          color: $brand-color;
+        }
+      }
+      .searchBox {
+        input {
+          height: 30px;
+          font-size: 1.2rem;
+          background-color: $background-dark-gray;
+          border: 1px solid white;
+          color: white;
+          padding: 0 1rem;
+        }
+      }
+    }
   }
 }
 </style>
