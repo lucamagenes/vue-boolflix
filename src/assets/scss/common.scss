@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+body{
+  font-family: sans-serif;
+}
+
+$brand-color-text: #e50915;
+$background-color: #141414;
+$font-main-color: #e3e4dc;
+
 .container {
   width: 1200px;
   margin: auto;

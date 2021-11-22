@@ -1,37 +1,50 @@
 <template>
   <main>
     <div class="container">
-      <div class="tool">
+      <!-- <div class="tool">
         <SearchElementInput @search-element="search" />
-      </div>
-      <div class="row" v-if="items.length">
-        <h1>Film e Serie TV</h1>
-        <div class="Movies row">
-          <ThumbElement :item="item" v-for="item in items" :key="item.id" />
+      </div> -->
+      <div class="movie">
+        <h2 v-if="films.length">Film</h2>
+        <div class="row">
+          <div class="item row" v-for="film in films" :key="film.id">
+            <Film :film="film" />
+          </div>
+        </div>
+        <div class="serie_tv">
+          <h2 v-if="series.length">Serie TV</h2>
+          <div class="row">
+            <div class="serieTv" v-for="serie in series" :key="serie.id">
+              <TvSerie :serie="serie" />
+            </div>
+          </div>
         </div>
       </div>
-      <div class="nothing" v-else>
-        <h2>
-          Per iniziare una ricerca inserisci il nome di un film nella barra di
-          ricerca
-        </h2>
+      <div class="nothing" v-if="films.length == 0 && series.length == 0">
+        <h2>Inserisci il nome di un FILM o di una SERIE TV</h2>
       </div>
     </div>
   </main>
 </template>
 
 <script>
-import SearchElementInput from "./SearchElementInput.vue";
-import ThumbElement from "./ThumbElement.vue";
+//import SearchElementInput from "./SearchElementInput.vue";
+import Film from "./Film.vue";
+import TvSerie from "./TvSerie.vue";
 
-import axios from "axios";
+//import axios from "axios";
 
 export default {
   components: {
-    SearchElementInput,
-    ThumbElement,
+    //SearchElementInput,
+    Film,
+    TvSerie,
   },
-  data() {
+  props: {
+    films: Array,
+    series: Array,
+  },
+  /*  data() {
     return {
       items: [],
       error: "",
@@ -72,7 +85,7 @@ export default {
           this.error = error;
         });
     },
-  },
+  }, */
 };
 </script>
 
